@@ -4,7 +4,7 @@ import BasketItems from './BasketItems'
 function Basket(props) {
   const {
     order = [],
-    getOrder
+    getOrder,
   } = props
   return (
     <div>

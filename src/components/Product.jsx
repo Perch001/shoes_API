@@ -1,8 +1,9 @@
 import React,{useState} from 'react'
+import { useEffect } from 'react';
 
 
 function Product(props){
-    const {setOrder} = props;
+    const {setOrder, order} = props;
     const [active, setActive] = useState(true)
     const param = {
         id: props.product.id,
@@ -10,6 +11,12 @@ function Product(props){
         price: props.product.price,
         image: props.product.image,
     }
+
+    function getOrderFunction(){
+        setOrder(param, setActive(false))
+        
+    }
+    console.log(order);
 
   return (
     <>
@@ -28,7 +35,7 @@ function Product(props){
                         <button 
                             disabled = {!active}
                             className={active ? "btn" : "disabled"} 
-                            onClick={() => setOrder(param, setActive(false))}>add to card</button>
+                            onClick={getOrderFunction}>add to card</button>
                     </div>
                 </div>
             </div>

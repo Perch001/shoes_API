@@ -78,6 +78,7 @@ img{
     margin-top: 15px;
     font-size: 18px;
     font-weight: bold;
+    
 }
 
 .item{
@@ -107,6 +108,8 @@ img{
 .BasketItem{
     display: flex;
     margin-top: 34px;
+    width: 400px;
+    animation: getOut 400ms ease-out backwards;
 }
 .btn-dis{
     width: 16px;
@@ -116,26 +119,26 @@ img{
 
 .count{
     display: flex;
-    margin-top: 10px;
+    margin-top: 15px;
 }
 .count-quality{
     margin-top: 10px;
 }
 .count-left{
-    margin-right: 10px;
+    margin-right: 20px;
     margin-top: 15px;
     border: solid #303841;
-    border-width: 0 4px 4px 0;
+    border-width: 0 5px 5px 0;
     display: inline-block;
     padding: 4px;
     transform: rotate(135deg);
     -webkit-transform: rotate(135deg);  
 }
 .count-right{
-    margin-left: 10px;
+    margin-left: 20px;
     margin-top: 15px;
     border: solid #303841;
-    border-width: 0 4px 4px 0;
+    border-width: 0 5px 5px 0;
     display: inline-block;
     padding: 4px;
     transform: rotate(-45deg);
@@ -157,5 +160,68 @@ img{
     width: 140%;
     transform: rotate(-28deg) translateY(-40px);
     filter: drop-shadow(0 30px 20px rgba(0, 0, 0, 0.2));
+    animation: growDown 700ms ease-in-out forwards
 }
+.BasketName{
+    font-size: 20px;
+    font-weight: bold;
+    margin: 25px 0 20px;
+    line-height: 1.5;
+    animation: rigthText 1000ms ease-in-out forwards
+}
+.BasketPrice{
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    animation: 
+        rigthText 500ms ease-in-out forwards,
+
+}
+
+
+@keyframes rigthText {
+    0%{
+        margin-left: 100px;
+    }
+    100%{
+        margin-left: 0;
+    }
+
+}
+@keyframes getOut{
+    0%{
+        transform: scale(0);
+        
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
     
+@keyframes growDown {
+
+    0% {
+  
+        opacity: 0;
+        width: 10%;
+        transform: rotate(-28deg) translateY(-40px);
+  
+    }
+  
+    50% {
+  
+        transform: rotate(-28deg) translateY(-40px);
+        width: 50%;
+  
+    }
+  
+    100% {
+  
+        opacity: 1;
+        width: 140%;
+        transform: rotate(-28deg) translateY(-40px);
+  
+    }
+  
+  }

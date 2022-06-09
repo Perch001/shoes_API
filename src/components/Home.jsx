@@ -6,10 +6,7 @@ import Product from "./Product";
 function Home() {
     const [product, setProduct] = useState([])
     const [order, setOrder] = useState([]);
-    // async function products() {
-    //     const response = await ProductSever.getAll()
-    //     setProduct(response.shoes)
-    // }
+
 
     const products = async () => {
         const response = await fetch("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1315882/shoes.json")
@@ -18,7 +15,6 @@ function Home() {
     }
     
     const addToOrder = (product) => {    
-        let count = 1
         setOrder([
             ...order,
             {
@@ -26,7 +22,6 @@ function Home() {
                 image: product.image,
                 name: product.name,
                 price: product.price,
-                count
             }
         ])
     }
@@ -37,18 +32,19 @@ function Home() {
     useEffect(() => {
         products()
     }, [])
+
   return (
     <div className="screen">
         <div className="first">
         <div className='title'>Basked</div>
             {product.map(pro => {
                 return(
-                    <Product key = {pro.id} product = {pro} setOrder = {addToOrder}/>
+                    <Product key = {pro.id} product = {pro} setOrder = {addToOrder} order={order}/>
                 )
             })}
         </div>
         <div className="first">
-            <Basket order = {order} getOrder = {removeFromOrder}>
+            <Basket order = {order} getOrder = {removeFromOrder} setOrder = {setOrder}>
             </Basket> 
         </div>
       
